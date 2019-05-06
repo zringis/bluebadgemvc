@@ -72,5 +72,32 @@ namespace BlueBadge.Services
                 return query.ToArray();
             }
         }
+
+        public TechDetail GetTechById(int techId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Technicians
+                        .Single(e => e.TechId == techId && e.OwnerId == _userId);
+                return
+                    new TechDetail
+                    {
+                        TechId = entity.TechId,
+                        FirstName = entity.FirstName,
+                        LastName = entity.LastName,
+                        Location = entity.Location,
+                        HourlyRate = entity.HourlyRate,
+                        WeekendRate = entity.WeekendRate,
+                        AfterHoursRate = entity.AfterHoursRate,
+                        HolidayRate = entity.HolidayRate,
+                        EmergencySameDayRate = entity.EmergencySameDayRate,
+                        EmergencyNextDayRate = entity.EmergencyNextDayRate,
+
+                        CreatedUtc = entity.CreatedUtc
+                    };
+            }
+        }
     }
 }

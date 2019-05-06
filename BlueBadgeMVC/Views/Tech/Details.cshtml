@@ -1,0 +1,110 @@
+﻿@model BlueBadge.Models.TechDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TechDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TechId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TechId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HourlyRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HourlyRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeekendRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeekendRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AfterHoursRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AfterHoursRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HolidayRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HolidayRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmergencySameDayRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmergencySameDayRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmergencyNextDayRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmergencyNextDayRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TechId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

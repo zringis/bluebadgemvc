@@ -51,5 +51,14 @@ namespace BlueBadgeMVC.Controllers
             var service = new TechService(userId);
             return service;
         }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreateTechService();
+            var model = svc.GetTechById(id);
+
+            return View(model);
+        }
+       
     }
 }

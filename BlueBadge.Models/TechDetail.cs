@@ -7,31 +7,28 @@ using System.Threading.Tasks;
 
 namespace BlueBadge.Models
 {
-    public class TechCreate
+    public class TechDetail
     {
-        [Required]
-        [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
-        [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
+        public int TechId { get; set; }
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
-        [Required]
-        [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
-        [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
-        [Required]
+        [Display(Name = "Location")]
         public string Location { get; set; }
-        [Required]
+        [Display(Name = "Hourly Rate")]
         public double HourlyRate { get; set; }
-        [Required]
+        [Display(Name = "Weekend Rate")]
         public double WeekendRate { get; set; }
-        [Required]
+        [Display(Name = "After Hours Rate")]
         public double AfterHoursRate { get; set; }
-        [Required]
+        [Display(Name = "Holiday Rate")]
         public double HolidayRate { get; set; }
-        [Required]
+        [Display(Name = "Same Day Rate")]
         public double EmergencySameDayRate { get; set; }
-        [Required]
+        [Display(Name = "Next Day Rate")]
         public double EmergencyNextDayRate { get; set; }
-
-        //public override string ToString() => FirstName;
+        [Display(Name = "Joined On")]
+        public DateTimeOffset CreatedUtc { get; set; }
     }
 }
