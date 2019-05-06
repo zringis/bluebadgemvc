@@ -105,5 +105,28 @@ namespace BlueBadgeMVC.Controllers
             return View(model);
         }
 
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateTechService();
+            var model = svc.GetTechById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateTechService();
+
+            service.DeleteTech(id);
+
+            TempData["SaveResult"] = "Tech was deleted";
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

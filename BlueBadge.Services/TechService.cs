@@ -125,5 +125,20 @@ namespace BlueBadge.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteTech(int techId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Technicians
+                        .Single(e => e.TechId == techId && e.OwnerId == _userId);
+
+                ctx.Technicians.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
