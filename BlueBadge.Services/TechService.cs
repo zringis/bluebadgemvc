@@ -99,5 +99,31 @@ namespace BlueBadge.Services
                     };
             }
         }
+
+        public bool UpdateTech(TechEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Technicians
+                        .Single(e => e.TechId == model.TechId && e.OwnerId == _userId);
+
+                entity.TechId = model.TechId;
+                entity.FirstName = model.FirstName;
+                entity.LastName = model.LastName;
+                entity.Location = model.Location;
+                entity.HourlyRate = model.HourlyRate;
+                entity.WeekendRate = model.WeekendRate;
+                entity.AfterHoursRate = model.AfterHoursRate;
+                entity.HolidayRate = model.HolidayRate;
+                entity.EmergencySameDayRate = model.EmergencySameDayRate;
+                entity.EmergencyNextDayRate = model.EmergencyNextDayRate;
+
+                        entity.ModifiedUtc = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

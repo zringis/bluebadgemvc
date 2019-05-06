@@ -59,6 +59,51 @@ namespace BlueBadgeMVC.Controllers
 
             return View(model);
         }
-       
+
+        public ActionResult Edit(int id)
+        {
+            var service = CreateTechService();
+            var detail = service.GetTechById(id);
+            var model =
+                new TechEdit
+                {
+                    TechId = detail.TechId,
+                    FirstName = detail.FirstName,
+                    LastName = detail.LastName,
+                    Location = detail.Location,
+                    HourlyRate = detail.HourlyRate,
+                    WeekendRate = detail.WeekendRate,
+                    AfterHoursRate = detail.AfterHoursRate,
+                    HolidayRate = detail.HolidayRate,
+                    EmergencySameDayRate = detail.EmergencySameDayRate,
+                    EmergencyNextDayRate = detail.EmergencyNextDayRate
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, TechEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.TechId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateTechService();
+
+            if (service.UpdateTech(model))
+            {
+                TempData["SaveResult"] = "Tech was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Tech could not be updated.");
+            return View(model);
+        }
+
     }
 }

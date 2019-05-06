@@ -61,6 +61,7 @@
     <Compile Include="SkillListItem.cs" />
     <Compile Include="TechCreate.cs" />
     <Compile Include="TechDetail.cs" />
+    <Compile Include="TechEdit.cs" />
     <Compile Include="TechListItem.cs" />
   </ItemGroup>
   <ItemGroup>
