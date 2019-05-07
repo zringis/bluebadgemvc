@@ -31,17 +31,26 @@ namespace BlueBadgeMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(SkillCreate model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            if (!ModelState.IsValid) return View(model);
 
+            var service = CreateSkillService();
+
+            if (service.CreateSkill(model))
+            {
+                TempData["SaveResult"] = "Skill was created.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Skill could not be created.");
+
+            return View(model);
+        }
+
+        private SkillService CreateSkillService()
+        {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new SkillService(userId);
-
-            service.CreateSkill(model);
-
-            return RedirectToAction("Index");
+            return service;
         }
     }
 }
