@@ -16,5 +16,10 @@ namespace BlueBadgeMVC.Controllers
             var model = new CustomerListItem[0];
             return View(model);
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }

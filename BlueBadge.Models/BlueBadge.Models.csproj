@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerCreate.cs" />
     <Compile Include="CustomerListItem.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="JobCreate.cs" />

@@ -241,7 +241,6 @@
     <Content Include="Views\Tech\Index.cshtml" />
     <Content Include="Views\Job\Index.cshtml" />
     <Content Include="Views\Skill\Index.cshtml" />
-    <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Tech\Create.cshtml" />
     <Content Include="Views\Tech\Details.cshtml" />
     <Content Include="Views\Tech\Edit.cshtml" />
@@ -251,6 +250,8 @@
     <Content Include="Views\Job\Edit.cshtml" />
     <Content Include="Views\Job\Delete.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
