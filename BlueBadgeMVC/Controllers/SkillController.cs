@@ -52,6 +52,14 @@ namespace BlueBadgeMVC.Controllers
             var service = new SkillService(userId);
             return service;
         }
+        public ActionResult Details(int id)
+        {
+            var svc = CreateSkillService();
+            var model = svc.GetSkillById(id);
+
+            return View(model);
+        }
+
     }
 
     
