@@ -249,6 +249,8 @@
     <Content Include="Views\Job\Create.cshtml" />
     <Content Include="Views\Job\Details.cshtml" />
     <Content Include="Views\Job\Edit.cshtml" />
+    <Content Include="Views\Job\Delete.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

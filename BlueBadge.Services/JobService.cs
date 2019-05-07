@@ -100,6 +100,21 @@ namespace BlueBadge.Services
             }
         }
 
+        public bool DeleteJob(int jobId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Jobs
+                        .Single(e => e.JobId == jobId && e.OwnerId == _userId);
+
+                ctx.Jobs.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
 
     }
 }
