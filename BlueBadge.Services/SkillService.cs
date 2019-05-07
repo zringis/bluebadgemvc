@@ -97,7 +97,20 @@ namespace BlueBadge.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public bool DeleteSkill(int skillId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Skills
+                        .Single(e => e.SkillId == skillId && e.OwnerId == _userId);
 
+                ctx.Skills.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
 
     }
 
