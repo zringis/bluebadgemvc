@@ -82,6 +82,24 @@ namespace BlueBadge.Services
             }
         }
 
+        public bool UpdateJob(JobEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Jobs
+                        .Single(e => e.JobId == model.JobId && e.OwnerId == _userId);
+
+                entity.CompanyName = model.CompanyName;
+                entity.JobDescription = model.JobDescription;
+                entity.JobLocation = model.JobLocation;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
 
     }
 }

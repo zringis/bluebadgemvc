@@ -60,6 +60,45 @@ namespace BlueBadgeMVC.Controllers
 
             return View(model);
         }
-        
+
+        public ActionResult Edit(int id)
+        {
+            var service = CreateJobService();
+            var detail = service.GetJobById(id);
+            var model =
+                new JobEdit
+                {
+                    CompanyName = detail.CompanyName,
+                    JobId = detail.JobId,
+                    JobDescription = detail.JobDescription,
+                    JobLocation = detail.JobLocation
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, JobEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.JobId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateJobService();
+
+            if (service.UpdateJob(model))
+            {
+                TempData["SaveResult"] = "Job was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Job could not be updated.");
+            return View(model);
+        }
+
     }
 }
