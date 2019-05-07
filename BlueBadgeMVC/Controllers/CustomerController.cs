@@ -15,11 +15,17 @@ namespace BlueBadgeMVC.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new CustomerService(userId);
+            var service = CreateCustomerService();
             var model = service.GetCustomers();
 
             return View(model);
+        }
+
+        private CustomerService CreateCustomerService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new CustomerService(userId);
+            return service;
         }
 
         public ActionResult Create()
@@ -31,17 +37,19 @@ namespace BlueBadgeMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CustomerCreate model)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateCustomerService();
+
+            if (service.CreateCustomer(model))
             {
-                return View(model);
-            }
+                TempData["SaveResult"] = "Customer was created.";
+                return RedirectToAction("Index");
+            };
 
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new CustomerService(userId);
+            ModelState.AddModelError("", "Customer could not be created.");
 
-            service.CreateCustomer(model);
-
-            return RedirectToAction("Index");
+            return View(model);
         }
 
 
