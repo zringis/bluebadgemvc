@@ -9,15 +9,11 @@ namespace BlueBadge.Models
 {
     public class SkillListItem
     {
-        [Display(Name="Skill Id")]
+        [Display(Name="Skill ID")]
         public int SkillId { get; set; }
         [Display(Name = "Skill Name")]
         public int SkillName { get; set; }
         [Display(Name = "Skill Description")]
         public int SkillDescription { get; set; }
-        public override string ToString()
-        {
-            return base.ToString();
-        }
     }
 }
