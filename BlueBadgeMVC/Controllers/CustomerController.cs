@@ -59,7 +59,24 @@ namespace BlueBadgeMVC.Controllers
 
             return View(model);
         }
-        
+
+        public ActionResult Edit(int id)
+        {
+            var service = CreateCustomerService();
+            var detail = service.GetCustomerById(id);
+            var model =
+                new CustomerEdit
+                {
+                    CustomerId = detail.CustomerId,
+                    FirstName = detail.FirstName,
+                    LastName = detail.LastName,
+                    CompanyName = detail.CompanyName,
+                    Location = detail.Location
+                };
+            return View(model);
+        }
+
+
 
     }
 }
