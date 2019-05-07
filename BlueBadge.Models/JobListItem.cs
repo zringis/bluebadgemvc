@@ -19,9 +19,5 @@ namespace BlueBadge.Models
         public string JobLocation { get; set; }
         [Display(Name = "Job Added On")]
         public DateTimeOffset CreatedUtc { get; set; }
-        public override string ToString()
-        {
-            return base.ToString();
-        }
     }
 }

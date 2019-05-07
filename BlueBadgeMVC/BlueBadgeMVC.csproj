@@ -246,6 +246,7 @@
     <Content Include="Views\Tech\Details.cshtml" />
     <Content Include="Views\Tech\Edit.cshtml" />
     <Content Include="Views\Tech\Delete.cshtml" />
+    <Content Include="Views\Job\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
