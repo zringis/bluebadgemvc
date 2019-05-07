@@ -57,6 +57,29 @@ namespace BlueBadge.Services
                 return query.ToArray();
             }
         }
+
+
+        public SkillDetail GetSkillById(int noteId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Skills
+                        .Single(e => e.SkillId == noteId && e.OwnerId == _userId);
+                return
+                    new SkillDetail
+                    {
+                        SkillId = entity.SkillId,
+                        SkillName = entity.SkillName,
+                        SkillDescription = entity.SkillDescription,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
+                    };
+            }
+        }
+
+
     }
 
 
