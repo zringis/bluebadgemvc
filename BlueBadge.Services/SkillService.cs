@@ -80,6 +80,25 @@ namespace BlueBadge.Services
         }
 
 
+        public bool UpdateSkill(SkillEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Skills
+                        .Single(e => e.SkillId == model.SkillId && e.OwnerId == _userId);
+
+                entity.SkillId = model.SkillId;
+                entity.SkillName = model.SkillName;
+                entity.SkillDescription = model.SkillDescription;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+
     }
 
 

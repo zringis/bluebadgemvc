@@ -60,6 +60,20 @@ namespace BlueBadgeMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var service = CreateSkillService();
+            var detail = service.GetSkillById(id);
+            var model =
+                new SkillEdit
+                {
+                    SkillId = detail.SkillId,
+                    SkillName = detail.SkillName,
+                    SkillDescription = detail.SkillDescription
+                };
+            return View(model);
+        }
+
     }
 
     

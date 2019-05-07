@@ -66,6 +66,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SkillCreate.cs" />
     <Compile Include="SkillDetail.cs" />
+    <Compile Include="SkillEdit.cs" />
     <Compile Include="SkillListItem.cs" />
     <Compile Include="TechCreate.cs" />
     <Compile Include="TechDetail.cs" />
