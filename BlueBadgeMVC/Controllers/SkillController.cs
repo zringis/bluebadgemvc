@@ -1,4 +1,6 @@
 ﻿using BlueBadge.Models;
+using BlueBadge.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +15,10 @@ namespace BlueBadgeMVC.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var model = new SkillListItem[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new SkillService(userId);
+            var model = service.GetSkills();
+
             return View(model);
         }
 
@@ -26,11 +31,17 @@ namespace BlueBadgeMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(SkillCreate model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-
+                return View(model);
             }
-            return View(model);
+
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new SkillService(userId);
+
+            service.CreateSkill(model);
+
+            return RedirectToAction("Index");
         }
     }
 }
