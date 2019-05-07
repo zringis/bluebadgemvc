@@ -7,18 +7,19 @@ using System.Threading.Tasks;
 
 namespace BlueBadge.Models
 {
-    public class JobListItem
+    public class JobDetail
     {
-        public Guid OwnerId { get; set; }
-        [Display(Name = "JobID")]
+        [Display(Name="Job ID")]
         public int JobId { get; set; }
-        [Display(Name = "Company Name")]
+        [Display(Name="Company Name")]
         public string CompanyName { get; set; }
-        [Display(Name = "Description")]
+        [Display(Name="Description of Job")]
         public string JobDescription { get; set; }
-        [Display(Name = "Location")]
+        [Display(Name="Location of Job")]
         public string JobLocation { get; set; }
-        [Display(Name = "Job Added On")]
+        [Display(Name="Created on")]
         public DateTimeOffset CreatedUtc { get; set; }
+        [Display(Name="Last Modified")]
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

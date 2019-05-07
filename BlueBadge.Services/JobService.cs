@@ -61,6 +61,27 @@ namespace BlueBadge.Services
             }
         }
 
+        public JobDetail GetJobById(int jobId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Jobs
+                        .Single(e => e.JobId == jobId && e.OwnerId == _userId);
+                return
+                    new JobDetail
+                    {
+                        JobId = entity.JobId,
+                        CompanyName = entity.CompanyName,
+                        JobDescription = entity.JobDescription,
+                        JobLocation = entity.JobLocation,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
+                    };
+            }
+        }
+
 
     }
 }
