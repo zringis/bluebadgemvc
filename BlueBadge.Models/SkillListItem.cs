@@ -12,8 +12,10 @@ namespace BlueBadge.Models
         [Display(Name="Skill ID")]
         public int SkillId { get; set; }
         [Display(Name = "Skill Name")]
-        public int SkillName { get; set; }
+        public string SkillName { get; set; }
         [Display(Name = "Skill Description")]
-        public int SkillDescription { get; set; }
+        public string SkillDescription { get; set; }
+        [Display(Name = "Created On")]
+        public DateTimeOffset CreatedUtc { get; set; }
     }
 }
