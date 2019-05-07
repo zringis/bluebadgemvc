@@ -1,4 +1,6 @@
 ﻿using BlueBadge.Models;
+using BlueBadge.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +13,19 @@ namespace BlueBadgeMVC.Controllers
     {
         // GET: Job
         [Authorize]
-        public ActionResult Index()
+         public ActionResult Index()
         {
-            var model = new JobListItem[0];
+            var service = CreateJobService();
+            var model = service.GetNotes();
+
             return View(model);
+        }
+
+        private JobService CreateJobService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new JobService(userId);
+            return service;
         }
 
         // GET
@@ -27,10 +38,18 @@ namespace BlueBadgeMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(JobCreate model)
         {
-            if (ModelState.IsValid)
-            {
+            if (!ModelState.IsValid) return View(model);
 
-            }
+            var service = CreateJobService();
+
+            if (service.CreateJob(model))
+            {
+                TempData["SaveResult"] = "Job was created.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Job could not be created.");
+
             return View(model);
         }
     }
