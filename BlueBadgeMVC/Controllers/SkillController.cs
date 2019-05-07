@@ -74,6 +74,30 @@ namespace BlueBadgeMVC.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, SkillEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.SkillId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateSkillService();
+
+            if (service.UpdateSkill(model))
+            {
+                TempData["SaveResult"] = "Skill was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Skill could not be updated.");
+            return View(model);
+        }
+
     }
 
     
