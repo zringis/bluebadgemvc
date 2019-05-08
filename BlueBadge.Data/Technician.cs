@@ -19,7 +19,11 @@ namespace BlueBadge.Data
         public string LastName { get; set; }
         [Required]
         public string Location { get; set; }
+
+
         public string TechSkill { get; set; }
+
+
         [Required]
         public double HourlyRate { get; set; }
         [Required]
@@ -35,9 +39,11 @@ namespace BlueBadge.Data
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
-        
+
         //allows us to access stuff in skills
+        [Display(Name = "Skill ID")]
         public int SkillId { get; set; }
+        [Display(Name = "Skill")]
         public virtual Skill Skill { get; set; }
 
 

@@ -14,6 +14,7 @@ namespace BlueBadge.Data
         [Required]
         public Guid OwnerId { get; set; }
         [Required]
+        [Display(Name = "Skill Name")]
         public string SkillName { get; set; }
         [Required]
         public string SkillDescription { get; set; }

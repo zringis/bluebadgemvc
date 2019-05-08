@@ -18,13 +18,16 @@ namespace BlueBadge.Models
         [Display(Name = "Location")]
         public string Location { get; set; }
 
+
+
         [Display(Name = "Skill ID")]
         public int SkillId { get; set; }
         [Display(Name = "Skill")]
         public Skill Skill { get; set; }
 
-        [Display(Name = "Hourly Rate")]
 
+
+        [Display(Name = "Hourly Rate")]
         public double HourlyRate { get; set; }
         [Display(Name = "Weekend Rate")]
         public double WeekendRate { get; set; }
@@ -38,5 +41,7 @@ namespace BlueBadge.Models
         public double EmergencyNextDayRate { get; set; }
         [Display(Name = "Joined On")]
         public DateTimeOffset CreatedUtc { get; set; }
+        [Display(Name = "Modified On")]
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }
