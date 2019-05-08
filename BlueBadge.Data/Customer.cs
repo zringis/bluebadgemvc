@@ -24,5 +24,14 @@ namespace BlueBadge.Data
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
+
+        [Display(Name = "Full Name")]
+        public string FullName
+        {
+            get
+            {
+                return $"{FirstName} {LastName}";
+            }
+        }
     }
 }

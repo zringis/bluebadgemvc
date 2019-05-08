@@ -16,13 +16,19 @@ namespace BlueBadgeMVC.Controllers
         public ActionResult Index()
         {
             var service = CreateTechService();
-            var model = service.GetNotes();
+            var model = service.GetTechs();
 
             return View(model);
         }
 
+        //CONNECTED DATABASE
         public ActionResult Create()
         {
+            //Here
+            var service = CreateTechService();
+            var skillList = new SelectList(service.SkillList(), "SkillId", "SkillName");
+            ViewBag.SkillId = skillList;
+            //to here
             return View();
         }
 
@@ -63,6 +69,9 @@ namespace BlueBadgeMVC.Controllers
         public ActionResult Edit(int id)
         {
             var service = CreateTechService();
+            var skillList = new SelectList(service.SkillList(), "SkillId", "SkillName");
+            ViewBag.SkillId = skillList;
+
             var detail = service.GetTechById(id);
             var model =
                 new TechEdit
@@ -71,6 +80,9 @@ namespace BlueBadgeMVC.Controllers
                     FirstName = detail.FirstName,
                     LastName = detail.LastName,
                     Location = detail.Location,
+
+                    SkillId = detail.SkillId,
+
                     HourlyRate = detail.HourlyRate,
                     WeekendRate = detail.WeekendRate,
                     AfterHoursRate = detail.AfterHoursRate,
@@ -114,6 +126,8 @@ namespace BlueBadgeMVC.Controllers
             return View(model);
         }
 
+
+        
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]

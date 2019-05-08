@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlueBadge.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,7 +17,14 @@ namespace BlueBadge.Models
         public string LastName { get; set; }
         [Display(Name = "Location")]
         public string Location { get; set; }
+
+        [Display(Name = "Skill ID")]
+        public int SkillId { get; set; }
+        [Display(Name = "Skill")]
+        public Skill Skill { get; set; }
+
         [Display(Name = "Hourly Rate")]
+
         public double HourlyRate { get; set; }
         [Display(Name = "Weekend Rate")]
         public double WeekendRate { get; set; }

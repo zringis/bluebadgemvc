@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlueBadge.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -31,6 +32,16 @@ namespace BlueBadge.Models
         [Display(Name = "Joined On")]
         public DateTimeOffset CreatedUtc { get; set; }
 
-        public override string ToString() => FirstName;
+        public int SkillId { get; set; }
+        public Skill Skill { get; set; }
+
+        [Display(Name = "Full Name")]
+        public string FullName
+        {
+            get
+            {
+                return $"{FirstName} {LastName}";
+            }
+        }
     }
 }

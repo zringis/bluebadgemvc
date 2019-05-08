@@ -25,6 +25,9 @@ namespace BlueBadge.Services
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     Location = model.Location,
+
+                    SkillId = model.SkillId,
+
                     HourlyRate = model.HourlyRate,
                     WeekendRate = model.WeekendRate,
                     AfterHoursRate = model.AfterHoursRate,
@@ -42,7 +45,7 @@ namespace BlueBadge.Services
         }
 
         //This allows us to see what a specific user has added
-        public IEnumerable<TechListItem> GetNotes()
+        public IEnumerable<TechListItem> GetTechs()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -58,6 +61,11 @@ namespace BlueBadge.Services
                                     FirstName = e.FirstName,
                                     LastName = e.LastName,
                                     Location = e.Location,
+
+
+                                    Skill = e.Skill,
+
+
                                     HourlyRate = e.HourlyRate,
                                     WeekendRate = e.WeekendRate,
                                     AfterHoursRate = e.AfterHoursRate,
@@ -88,6 +96,9 @@ namespace BlueBadge.Services
                         FirstName = entity.FirstName,
                         LastName = entity.LastName,
                         Location = entity.Location,
+
+                        Skill = entity.Skill,
+
                         HourlyRate = entity.HourlyRate,
                         WeekendRate = entity.WeekendRate,
                         AfterHoursRate = entity.AfterHoursRate,
@@ -113,6 +124,9 @@ namespace BlueBadge.Services
                 entity.FirstName = model.FirstName;
                 entity.LastName = model.LastName;
                 entity.Location = model.Location;
+
+                entity.SkillId = model.SkillId;
+
                 entity.HourlyRate = model.HourlyRate;
                 entity.WeekendRate = model.WeekendRate;
                 entity.AfterHoursRate = model.AfterHoursRate;
@@ -120,7 +134,7 @@ namespace BlueBadge.Services
                 entity.EmergencySameDayRate = model.EmergencySameDayRate;
                 entity.EmergencyNextDayRate = model.EmergencyNextDayRate;
 
-                        entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }
@@ -138,6 +152,16 @@ namespace BlueBadge.Services
                 ctx.Technicians.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
+            }
+        }
+
+
+        //GETTING DATA FROM ANOTHER DATABASEA
+        public List<Skill> SkillList()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                return ctx.Skills.ToList();
             }
         }
     }

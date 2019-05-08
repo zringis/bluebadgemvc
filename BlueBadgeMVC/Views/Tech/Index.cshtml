@@ -24,37 +24,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.TechId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.FullName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Location)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HourlyRate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.WeekendRate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AfterHoursRate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HolidayRate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmergencySameDayRate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmergencyNextDayRate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
         </th>
         <th></th>
     </tr>
@@ -63,37 +36,10 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.TechId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
+                @Html.DisplayFor(modelItem => item.FullName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HourlyRate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WeekendRate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AfterHoursRate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HolidayRate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmergencySameDayRate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmergencyNextDayRate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedUtc)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.TechId }) |

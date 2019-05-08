@@ -21,5 +21,14 @@ namespace BlueBadge.Models
         public string Location { get; set; }
         [Display(Name = "Joined On")]
         public DateTimeOffset CreatedUTC { get; set; }
+
+        [Display(Name = "Full Name")]
+        public string FullName
+        {
+            get
+            {
+                return $"{FirstName} {LastName}";
+            }
+        }
     }
 }

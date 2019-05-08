@@ -24,22 +24,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.CustomerId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.FullName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CompanyName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Location)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedUTC)
         </th>
         <th></th>
     </tr>
@@ -48,22 +39,13 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
+                @Html.DisplayFor(modelItem => item.FullName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CompanyName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedUTC)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.CustomerId }) |
