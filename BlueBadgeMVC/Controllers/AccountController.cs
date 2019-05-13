@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BlueBadgeMVC.Models;
 using BlueBadge.Models;
+using BlueBadge.Data;
 
 namespace BlueBadgeMVC.Controllers
 {

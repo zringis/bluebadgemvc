@@ -27,6 +27,9 @@ namespace BlueBadge.Services
                     CompanyName = model.CompanyName,
                     JobDescription = model.JobDescription,
                     JobLocation = model.JobLocation,
+
+                    SkillId = model.SkillId,
+
                     CreatedUtc = DateTimeOffset.Now
                 };
 
@@ -37,7 +40,7 @@ namespace BlueBadge.Services
             }
         }
 
-        public IEnumerable<JobListItem> GetNotes()
+        public IEnumerable<JobListItem> GetJobs()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -52,6 +55,9 @@ namespace BlueBadge.Services
                                     JobId = e.JobId,
                                     CompanyName = e.CompanyName,
                                     JobDescription = e.JobDescription,
+
+                                    Skill = e.Skill,
+
                                     JobLocation = e.JobLocation,
                                     CreatedUtc = e.CreatedUtc
                                 }
@@ -76,6 +82,9 @@ namespace BlueBadge.Services
                         CompanyName = entity.CompanyName,
                         JobDescription = entity.JobDescription,
                         JobLocation = entity.JobLocation,
+
+                        Skill = entity.Skill,
+
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
@@ -94,6 +103,10 @@ namespace BlueBadge.Services
                 entity.CompanyName = model.CompanyName;
                 entity.JobDescription = model.JobDescription;
                 entity.JobLocation = model.JobLocation;
+
+                entity.SkillId = model.SkillId;
+
+
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
@@ -115,6 +128,14 @@ namespace BlueBadge.Services
             }
         }
 
+
+        public List<Skill> SkillList()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                return ctx.Skills.ToList();
+            }
+        }
 
     }
 }

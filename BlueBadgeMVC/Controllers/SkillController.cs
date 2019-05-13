@@ -16,7 +16,7 @@ namespace BlueBadgeMVC.Controllers
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new SkillService(userId);
+            var service = new SkillService();
             var model = service.GetSkills();
 
             return View(model);
@@ -49,7 +49,7 @@ namespace BlueBadgeMVC.Controllers
         private SkillService CreateSkillService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new SkillService(userId);
+            var service = new SkillService();
             return service;
         }
         public ActionResult Details(int id)

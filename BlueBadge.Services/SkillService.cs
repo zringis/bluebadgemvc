@@ -10,19 +10,12 @@ namespace BlueBadge.Services
 {
     public class SkillService
     {
-        private readonly Guid _userId;
-
-        public SkillService(Guid userId)
-        {
-            _userId = userId;
-        }
 
         public bool CreateSkill(SkillCreate model)
         {
             var entity =
                 new Skill()
                 {
-                    OwnerId = _userId,
                     SkillName = model.SkillName,
                     SkillDescription = model.SkillDescription,
                     CreatedUtc = DateTimeOffset.Now
@@ -42,7 +35,6 @@ namespace BlueBadge.Services
                 var query =
                     ctx
                         .Skills
-                        .Where(e => e.OwnerId == _userId)
                         .Select(
                             e =>
                                 new SkillListItem
@@ -66,7 +58,7 @@ namespace BlueBadge.Services
                 var entity =
                     ctx
                         .Skills
-                        .Single(e => e.SkillId == noteId && e.OwnerId == _userId);
+                        .Single(e => e.SkillId == noteId);
                 return
                     new SkillDetail
                     {
@@ -87,7 +79,7 @@ namespace BlueBadge.Services
                 var entity =
                     ctx
                         .Skills
-                        .Single(e => e.SkillId == model.SkillId && e.OwnerId == _userId);
+                        .Single(e => e.SkillId == model.SkillId);
 
                 entity.SkillId = model.SkillId;
                 entity.SkillName = model.SkillName;
@@ -104,7 +96,7 @@ namespace BlueBadge.Services
                 var entity =
                     ctx
                         .Skills
-                        .Single(e => e.SkillId == skillId && e.OwnerId == _userId);
+                        .Single(e => e.SkillId == skillId);
 
                 ctx.Skills.Remove(entity);
 
@@ -114,6 +106,23 @@ namespace BlueBadge.Services
 
 
 
+
+        //For The DB
+
+        public bool SkillsExist()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                if(ctx.Skills.Count<Skill>() > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
 
         
 

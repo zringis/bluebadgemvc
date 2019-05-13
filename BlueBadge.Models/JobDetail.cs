@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlueBadge.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -21,5 +22,12 @@ namespace BlueBadge.Models
         public DateTimeOffset CreatedUtc { get; set; }
         [Display(Name="Last Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
+
+        [Display(Name = "Skill ID")]
+        public int SkillId { get; set; }
+        [Display(Name = "Skill Needed")]
+        public Skill Skill { get; set; }
+
+
     }
 }

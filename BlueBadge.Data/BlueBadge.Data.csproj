@@ -55,7 +55,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />
+    <Compile Include="IdentityModels.cs" />
     <Compile Include="Job.cs" />
+    <Compile Include="Location.cs" />
+    <Compile Include="Migrations\201905131350583_removedguid.cs" />
+    <Compile Include="Migrations\201905131350583_removedguid.Designer.cs">
+      <DependentUpon>201905131350583_removedguid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Skill.cs" />
     <Compile Include="Technician.cs" />
@@ -63,6 +70,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201905131350583_removedguid.resx">
+      <DependentUpon>201905131350583_removedguid.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

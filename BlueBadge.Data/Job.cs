@@ -23,5 +23,13 @@ namespace BlueBadge.Data
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
 
+
+        [Display(Name = "Skill ID")]
+        public int SkillId { get; set; }
+        [Display(Name = "Skill Needed")]
+        public virtual Skill Skill { get; set; }
+
+
+
     }
 }

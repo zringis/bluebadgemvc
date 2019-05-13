@@ -24,14 +24,12 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.JobId)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.CompanyName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.JobDescription)
+            @Html.DisplayNameFor(model => model.Skill)
         </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.JobLocation)
         </th>
@@ -45,14 +43,12 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.JobId)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.CompanyName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.JobDescription)
+                @Html.DisplayFor(modelItem => item.Skill.SkillName)
             </td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.JobLocation)
             </td>

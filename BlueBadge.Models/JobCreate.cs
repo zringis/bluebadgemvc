@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlueBadge.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -20,5 +21,11 @@ namespace BlueBadge.Models
         [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         public string JobLocation { get; set; }
+
+
+        public int SkillId { get; set; }
+        public Skill Skill { get; set; }
+
+
     }
 }

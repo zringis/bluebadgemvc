@@ -16,7 +16,7 @@ namespace BlueBadgeMVC.Controllers
          public ActionResult Index()
         {
             var service = CreateJobService();
-            var model = service.GetNotes();
+            var model = service.GetJobs();
 
             return View(model);
         }
@@ -31,6 +31,12 @@ namespace BlueBadgeMVC.Controllers
         // GET
         public ActionResult Create()
         {
+            var service = CreateJobService();
+            var skillList = new SelectList(service.SkillList(), "SkillId", "SkillName");
+            ViewBag.SkillId = skillList;
+            var techList = new SelectList(service.SkillList(), "TechId", "TechName");
+            ViewBag.SkillId = techList;
+
             return View();
         }
 
@@ -64,12 +70,19 @@ namespace BlueBadgeMVC.Controllers
         public ActionResult Edit(int id)
         {
             var service = CreateJobService();
+
+            var skillList = new SelectList(service.SkillList(), "SkillId", "SkillName");
+            ViewBag.SkillId = skillList;
+            var techList = new SelectList(service.SkillList(), "TechId", "TechName");
+            ViewBag.SkillId = techList;
+
             var detail = service.GetJobById(id);
             var model =
                 new JobEdit
                 {
                     CompanyName = detail.CompanyName,
                     JobId = detail.JobId,
+                    SkillId = detail.SkillId,
                     JobDescription = detail.JobDescription,
                     JobLocation = detail.JobLocation
                 };

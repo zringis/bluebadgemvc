@@ -12,6 +12,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using BlueBadgeMVC.Models;
 using BlueBadge.Models;
+using BlueBadge.Data;
 
 namespace BlueBadgeMVC
 {

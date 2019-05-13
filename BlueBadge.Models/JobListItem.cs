@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlueBadge.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -20,5 +21,9 @@ namespace BlueBadge.Models
         public string JobLocation { get; set; }
         [Display(Name = "Job Added On")]
         public DateTimeOffset CreatedUtc { get; set; }
+
+        public int SkillId { get; set; }
+        public Skill Skill { get; set; }
+
     }
 }

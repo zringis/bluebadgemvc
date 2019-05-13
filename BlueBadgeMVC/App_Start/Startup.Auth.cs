@@ -7,6 +7,7 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using BlueBadgeMVC.Models;
 using BlueBadge.Models;
+using BlueBadge.Data;
 
 namespace BlueBadgeMVC
 {
