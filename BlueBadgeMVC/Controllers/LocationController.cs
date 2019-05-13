@@ -1,4 +1,5 @@
 ﻿using BlueBadge.Models;
+using BlueBadge.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,9 @@ namespace BlueBadgeMVC.Controllers
         // GET: Location
         public ActionResult Index()
         {
-            var model = new LocationListItem[0];
+            var service = new LocationServices();
+            var model = service.GetLocation();
+
             return View(model);
         }
 
@@ -25,11 +28,16 @@ namespace BlueBadgeMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(LocationCreate model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-
+                return View(model);
             }
-            return View(model);
+
+            var service = new LocationServices();
+
+            service.CreateLocation(model);
+
+            return RedirectToAction("Index");
         }
     }
 }
