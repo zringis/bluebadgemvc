@@ -14,30 +14,39 @@ namespace BlueBadgeMVC.Controllers
         // GET: Location
         public ActionResult Index()
         {
-            var service = new LocationServices();
+            var service = CreateLocationService();
             var model = service.GetLocation();
 
             return View(model);
+        }
+
+        private static LocationServices CreateLocationService()
+        {
+            return new LocationServices();
         }
 
         public ActionResult Create()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(LocationCreate model)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateLocationService();
+
+            if (service.CreateLocation(model))
             {
-                return View(model);
-            }
+                TempData["SaveResult"] = "Location was added.";
+                return RedirectToAction("Index");
+            };
 
-            var service = new LocationServices();
+            ModelState.AddModelError("", "Location coundn't be added.");
 
-            service.CreateLocation(model);
-
-            return RedirectToAction("Index");
+            return View(model);
         }
     }
 }
