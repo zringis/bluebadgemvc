@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace BlueBadgeMVC.Controllers
 {
+    [Authorize]
     public class LocationController : Controller
     {
         // GET: Location
