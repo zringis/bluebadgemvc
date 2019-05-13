@@ -15,7 +15,5 @@ namespace BlueBadge.Models
         public string LocationState { get; set; }
         [Display(Name = "City")]
         public string LocationCity { get; set; }
-        [Display(Name = "Address")]
-        public string LocationAddress { get; set; }
     }
 }

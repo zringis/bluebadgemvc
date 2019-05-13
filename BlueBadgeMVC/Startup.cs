@@ -17,6 +17,22 @@ namespace BlueBadgeMVC
             CheckSkillsTable();
         }
 
+        private void CheckLocationTable()
+        {
+            LocationServices locationService = new LocationServices();
+            ApplicationDbContext context = new ApplicationDbContext();
+
+            if (!locationService.LocationsExist())
+            {
+                Location location = new Location();
+                location.LocationState = "Indiana";
+                location.LocationCity = "Indianapolis";
+                context.Locations.Add(location);
+                context.SaveChanges();
+            }
+
+        }
+
         private void CheckSkillsTable()
         {
             SkillService skillService = new SkillService();
@@ -76,6 +92,7 @@ namespace BlueBadgeMVC
                 context.Skills.Add(skill1);
                 context.SaveChanges();
             }
+
         }
     }
 }

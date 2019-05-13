@@ -17,7 +17,6 @@ namespace BlueBadge.Services
                 {
                     LocationState = model.LocationState,
                     LocationCity = model.LocationCity,
-                    LocationAddress = model.LocationAddress
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -42,7 +41,6 @@ namespace BlueBadge.Services
                                     LocationId = e.LocationId,
                                     LocationState = e.LocationState,
                                     LocationCity = e.LocationCity,
-                                    LocationAddress = e.LocationAddress
                                 }
                         );
 
@@ -63,8 +61,7 @@ namespace BlueBadge.Services
                     {
                         LocationId = entity.LocationId,
                         LocationState = entity.LocationState,
-                        LocationCity = entity.LocationCity,
-                        LocationAddress = entity.LocationAddress
+                        LocationCity = entity.LocationCity
                     };
             }
         }
@@ -79,11 +76,39 @@ namespace BlueBadge.Services
 
                 entity.LocationState = model.LocationState;
                 entity.LocationCity = model.LocationCity;
-                entity.LocationAddress = model.LocationAddress;
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteLocation(int locationId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Locations
+                        .Single(e => e.LocationId == locationId);
+
+                ctx.Locations.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }
         }
 
+
+        public bool LocationsExist()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                if (ctx.Locations.Count<Location>() > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
     }
 }

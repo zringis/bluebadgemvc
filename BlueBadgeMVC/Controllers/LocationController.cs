@@ -66,10 +66,55 @@ namespace BlueBadgeMVC.Controllers
                 {
                     LocationId = detail.LocationId,
                     LocationState = detail.LocationState,
-                    LocationCity = detail.LocationCity,
-                    LocationAddress = detail.LocationAddress
+                    LocationCity = detail.LocationCity
         };
             return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, LocationEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.LocationId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateLocationService();
+
+            if (service.UpdateNote(model))
+            {
+                TempData["SaveResult"] = "Location was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Location could not be updated.");
+            return View(model);
+        }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateLocationService();
+            var model = svc.GetLocationById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateLocationService();
+
+            service.DeleteLocation(id);
+
+            TempData["SaveResult"] = "Location was deleted";
+
+            return RedirectToAction("Index");
         }
 
     }

@@ -18,8 +18,5 @@ namespace BlueBadge.Data
         [Required]
         [Display(Name = "City")]
         public string LocationCity { get; set; }
-        [Required]
-        [Display(Name = "Address")]
-        public string LocationAddress { get; set; }
     }
 }
