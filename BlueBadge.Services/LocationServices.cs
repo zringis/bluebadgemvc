@@ -68,5 +68,22 @@ namespace BlueBadge.Services
                     };
             }
         }
+        public bool UpdateNote(LocationEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Locations
+                        .Single(e => e.LocationId == model.LocationId);
+
+                entity.LocationState = model.LocationState;
+                entity.LocationCity = model.LocationCity;
+                entity.LocationAddress = model.LocationAddress;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
     }
 }

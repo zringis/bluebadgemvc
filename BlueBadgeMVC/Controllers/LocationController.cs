@@ -57,6 +57,20 @@ namespace BlueBadgeMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var service = CreateLocationService();
+            var detail = service.GetLocationById(id);
+            var model =
+                new LocationEdit
+                {
+                    LocationId = detail.LocationId,
+                    LocationState = detail.LocationState,
+                    LocationCity = detail.LocationCity,
+                    LocationAddress = detail.LocationAddress
+        };
+            return View(model);
+        }
 
     }
 }

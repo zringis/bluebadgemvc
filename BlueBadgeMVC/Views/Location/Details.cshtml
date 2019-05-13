@@ -1,0 +1,50 @@
+﻿@model BlueBadge.Models.LocationDetails
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LocationDetails</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationAddress)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LocationId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
