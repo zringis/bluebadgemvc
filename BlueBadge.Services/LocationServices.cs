@@ -49,5 +49,24 @@ namespace BlueBadge.Services
                 return query.ToArray();
             }
         }
+
+        public LocationDetails GetLocationById(int locationId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Locations
+                        .Single(e => e.LocationId == locationId);
+                return
+                    new LocationDetails
+                    {
+                        LocationId = entity.LocationId,
+                        LocationState = entity.LocationState,
+                        LocationCity = entity.LocationCity,
+                        LocationAddress = entity.LocationAddress
+                    };
+            }
+        }
     }
 }
