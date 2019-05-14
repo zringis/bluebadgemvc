@@ -16,9 +16,10 @@ namespace BlueBadge.Models
 
         public int SkillId { get; set; }
         public Skill Skill { get; set; }
+        public int LocationId { get; set; }
+        public Location Location { get; set; }
 
 
-        public string Location { get; set; }
         public double HourlyRate { get; set; }
         public double WeekendRate { get; set; }
         public double AfterHoursRate { get; set; }

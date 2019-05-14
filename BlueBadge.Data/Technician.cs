@@ -17,8 +17,6 @@ namespace BlueBadge.Data
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
-        [Required]
-        public string Location { get; set; }
 
 
         public string TechSkill { get; set; }
@@ -45,6 +43,9 @@ namespace BlueBadge.Data
         public int SkillId { get; set; }
         [Display(Name = "Skill")]
         public virtual Skill Skill { get; set; }
+
+        public int LocationId { get; set; }
+        public virtual Location Location { get; set; }
 
 
         [Display(Name = "Full Name")]

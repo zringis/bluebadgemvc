@@ -24,7 +24,8 @@ namespace BlueBadge.Services
                     OwnerId = _userId,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
-                    Location = model.Location,
+
+                    LocationId = model.LocationId,
 
                     SkillId = model.SkillId,
 
@@ -60,8 +61,9 @@ namespace BlueBadge.Services
                                     TechId = e.TechId,
                                     FirstName = e.FirstName,
                                     LastName = e.LastName,
-                                    Location = e.Location,
 
+
+                                    Location = e.Location,
 
                                     Skill = e.Skill,
 
@@ -95,6 +97,8 @@ namespace BlueBadge.Services
                         TechId = entity.TechId,
                         FirstName = entity.FirstName,
                         LastName = entity.LastName,
+
+
                         Location = entity.Location,
 
                         Skill = entity.Skill,
@@ -123,7 +127,9 @@ namespace BlueBadge.Services
                 entity.TechId = model.TechId;
                 entity.FirstName = model.FirstName;
                 entity.LastName = model.LastName;
-                entity.Location = model.Location;
+
+
+                entity.LocationId = model.LocationId;
 
                 entity.SkillId = model.SkillId;
 
@@ -162,6 +168,15 @@ namespace BlueBadge.Services
             using (var ctx = new ApplicationDbContext())
             {
                 return ctx.Skills.ToList();
+                
+            }
+        }
+        public List<Location> LocationList()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                return ctx.Locations.ToList();
+
             }
         }
     }

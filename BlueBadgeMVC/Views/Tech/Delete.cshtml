@@ -36,12 +36,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Location)
+            @Html.DisplayNameFor(model => model.Location.FullLocation)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Location)
+            @Html.DisplayFor(model => model.Location.FullLocation)
         </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Skill.SkillName)
+        </dt>
+        <dt>
+            @Html.DisplayFor(model => model.Skill.SkillName)
+        </dt>
 
         <dt>
             @Html.DisplayNameFor(model => model.HourlyRate)

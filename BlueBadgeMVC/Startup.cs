@@ -15,6 +15,7 @@ namespace BlueBadgeMVC
         {
             ConfigureAuth(app);
             CheckSkillsTable();
+            CheckLocationTable();
         }
 
         private void CheckLocationTable()
@@ -25,9 +26,75 @@ namespace BlueBadgeMVC
             if (!locationService.LocationsExist())
             {
                 Location location = new Location();
-                location.LocationState = "Indiana";
-                location.LocationCity = "Indianapolis";
+                location.LocationState = "Arizona";
+                location.LocationCity = "Phoenix";
                 context.Locations.Add(location);
+                context.SaveChanges();
+
+                Location location2 = new Location();
+                location2.LocationState = "California";
+                location2.LocationCity = "Sacramento";
+                context.Locations.Add(location2);
+                context.SaveChanges();
+
+                Location location3 = new Location();
+                location3.LocationState = "Colorado";
+                location3.LocationCity = "Denver";
+                context.Locations.Add(location3);
+                context.SaveChanges();
+
+                Location location4 = new Location();
+                location4.LocationState = "Florida";
+                location4.LocationCity = "Tallahassee";
+                context.Locations.Add(location4);
+                context.SaveChanges();
+
+                Location location5 = new Location();
+                location5.LocationState = "Indiana";
+                location5.LocationCity = "Indianapolis";
+                context.Locations.Add(location5);
+                context.SaveChanges();
+
+                Location location6 = new Location();
+                location6.LocationState = "Kentucky";
+                location6.LocationCity = "Frankfort";
+                context.Locations.Add(location6);
+                context.SaveChanges();
+
+                Location location7 = new Location();
+                location7.LocationState = "Minnesota";
+                location7.LocationCity = "St. Paul";
+                context.Locations.Add(location7);
+                context.SaveChanges();
+
+                Location location8 = new Location();
+                location8.LocationState = "New York";
+                location8.LocationCity = "Albany";
+                context.Locations.Add(location8);
+                context.SaveChanges();
+
+                Location location9 = new Location();
+                location9.LocationState = "Ohio";
+                location9.LocationCity = "Columbus";
+                context.Locations.Add(location9);
+                context.SaveChanges();
+
+                Location location10 = new Location();
+                location10.LocationState = "Tennessee";
+                location10.LocationCity = "Nashville";
+                context.Locations.Add(location10);
+                context.SaveChanges();
+
+                Location location11 = new Location();
+                location11.LocationState = "Texas";
+                location11.LocationCity = "Austin";
+                context.Locations.Add(location11);
+                context.SaveChanges();
+
+                Location location12 = new Location();
+                location12.LocationState = "West Virginia";
+                location12.LocationCity = "Charelston";
+                context.Locations.Add(location12);
                 context.SaveChanges();
             }
 

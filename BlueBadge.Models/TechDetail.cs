@@ -15,15 +15,16 @@ namespace BlueBadge.Models
         public string FirstName { get; set; }
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
-        [Display(Name = "Location")]
-        public string Location { get; set; }
-
 
 
         [Display(Name = "Skill ID")]
         public int SkillId { get; set; }
         [Display(Name = "Skill")]
         public Skill Skill { get; set; }
+        [Display(Name = "Location ID")]
+        public int LocationId { get; set; }
+        [Display(Name = "Location")]
+        public Location Location { get; set; }
 
 
 

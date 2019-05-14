@@ -80,6 +80,8 @@ namespace BlueBadge.Services
             }
         }
 
+        
+
         public bool DeleteLocation(int locationId)
         {
             using (var ctx = new ApplicationDbContext())

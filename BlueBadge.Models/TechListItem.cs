@@ -16,8 +16,7 @@ namespace BlueBadge.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
         [Display(Name = "Location")]
-        public string Location { get; set; }
-        [Display(Name = "Hourly Rate")]
+        
         public double HourlyRate { get; set; }
         [Display(Name = "Weekend Rate")]
         public double WeekendRate { get; set; }
@@ -34,6 +33,12 @@ namespace BlueBadge.Models
 
         public int SkillId { get; set; }
         public Skill Skill { get; set; }
+
+        [Display(Name = "Location ID")]
+        public int LocationId { get; set; }
+        [Display(Name = "Location")]
+        public Location Location { get; set; }
+
 
         [Display(Name = "Full Name")]
         public string FullName

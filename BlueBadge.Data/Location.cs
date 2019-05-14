@@ -18,5 +18,15 @@ namespace BlueBadge.Data
         [Required]
         [Display(Name = "City")]
         public string LocationCity { get; set; }
+
+        [Display(Name = "Location")]
+        public string FullLocation
+        {
+            get
+            {
+                return $"{LocationState}, {LocationCity}";
+            }
+        }
+
     }
 }

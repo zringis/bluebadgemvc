@@ -28,6 +28,8 @@ namespace BlueBadgeMVC.Controllers
             var service = CreateTechService();
             var skillList = new SelectList(service.SkillList(), "SkillId", "SkillName");
             ViewBag.SkillId = skillList;
+            var locationList = new SelectList(service.LocationList(), "LocationId", "FullLocation");
+            ViewBag.LocationId = locationList;
             //to here
             return View();
         }
@@ -40,6 +42,12 @@ namespace BlueBadgeMVC.Controllers
 
             var service = CreateTechService();
 
+            var skillList = new SelectList(service.SkillList(), "SkillId", "SkillName", model.SkillId);
+            ViewBag.SkillId = skillList;
+            var locationList = new SelectList(service.LocationList(), "LocationId", "FullLocation", model.LocationId);
+            ViewBag.LocationId = locationList;
+
+
             if (service.CreateTech(model))
             {
                 TempData["SaveResult"] = "Your tech was added.";
@@ -47,6 +55,8 @@ namespace BlueBadgeMVC.Controllers
             };
 
             ModelState.AddModelError("", "Tech could not be added.");
+
+            
 
             return View(model);
         }
@@ -71,6 +81,8 @@ namespace BlueBadgeMVC.Controllers
             var service = CreateTechService();
             var skillList = new SelectList(service.SkillList(), "SkillId", "SkillName");
             ViewBag.SkillId = skillList;
+            var locationList = new SelectList(service.LocationList(), "LocationId", "FullLocation");
+            ViewBag.LocationId = locationList;
 
             var detail = service.GetTechById(id);
             var model =
@@ -79,7 +91,9 @@ namespace BlueBadgeMVC.Controllers
                     TechId = detail.TechId,
                     FirstName = detail.FirstName,
                     LastName = detail.LastName,
-                    Location = detail.Location,
+
+
+                    LocationId = detail.LocationId,
 
                     SkillId = detail.SkillId,
 
@@ -114,6 +128,12 @@ namespace BlueBadgeMVC.Controllers
             }
 
             ModelState.AddModelError("", "Tech could not be updated.");
+
+            var skillList = new SelectList(service.SkillList(), "SkillId", "SkillName", model.SkillId);
+            ViewBag.SkillId = skillList;
+            var locationList = new SelectList(service.LocationList(), "LocationId", "FullLocation", model.LocationId);
+            ViewBag.LocationId = locationList;
+
             return View(model);
         }
 
