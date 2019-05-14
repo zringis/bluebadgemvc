@@ -26,7 +26,9 @@ namespace BlueBadge.Services
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     CompanyName = model.CompanyName,
-                    Location = model.Location,
+
+                    LocationId = model.LocationId,
+
                     CreatedUtc = DateTimeOffset.Now
                 };
 
@@ -53,7 +55,9 @@ namespace BlueBadge.Services
                                     FirstName = e.FirstName,
                                     LastName = e.LastName,
                                     CompanyName = e.CompanyName,
+
                                     Location = e.Location,
+
                                     CreatedUTC = e.CreatedUtc
                                 }
                         );
@@ -79,7 +83,9 @@ namespace BlueBadge.Services
                         FirstName = entity.FirstName,
                         LastName = entity.LastName,
                         CompanyName = entity.CompanyName,
+
                         Location = entity.Location,
+
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
@@ -98,7 +104,9 @@ namespace BlueBadge.Services
                 entity.FirstName = model.FirstName;
                 entity.LastName = model.LastName;
                 entity.CompanyName = model.CompanyName;
-                entity.Location = model.Location;
+
+                entity.LocationId = model.LocationId;
+
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
@@ -119,6 +127,13 @@ namespace BlueBadge.Services
             }
         }
 
+        public List<Location> LocationList()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                return ctx.Locations.ToList();
 
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlueBadge.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ namespace BlueBadge.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string CompanyName { get; set; }
-        public string Location { get; set; }
+
+        public int LocationId { get; set; }
+        public Location Location { get; set; }
     }
 }

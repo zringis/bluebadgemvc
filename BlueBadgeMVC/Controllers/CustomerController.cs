@@ -30,6 +30,9 @@ namespace BlueBadgeMVC.Controllers
 
         public ActionResult Create()
         {
+            var service = CreateCustomerService();
+            var locationList = new SelectList(service.LocationList(), "LocationId", "FullLocation");
+            ViewBag.LocationId = locationList;
             return View();
         }
 
@@ -40,6 +43,9 @@ namespace BlueBadgeMVC.Controllers
             if (!ModelState.IsValid) return View(model);
 
             var service = CreateCustomerService();
+
+            var locationList = new SelectList(service.LocationList(), "LocationId", "FullLocation", model.LocationId);
+            ViewBag.LocationId = locationList;
 
             if (service.CreateCustomer(model))
             {
@@ -63,6 +69,10 @@ namespace BlueBadgeMVC.Controllers
         public ActionResult Edit(int id)
         {
             var service = CreateCustomerService();
+
+            var locationList = new SelectList(service.LocationList(), "LocationId", "FullLocation");
+            ViewBag.LocationId = locationList;
+
             var detail = service.GetCustomerById(id);
             var model =
                 new CustomerEdit
@@ -71,7 +81,8 @@ namespace BlueBadgeMVC.Controllers
                     FirstName = detail.FirstName,
                     LastName = detail.LastName,
                     CompanyName = detail.CompanyName,
-                    Location = detail.Location
+
+                    LocationId = detail.LocationId
                 };
             return View(model);
         }
@@ -98,6 +109,10 @@ namespace BlueBadgeMVC.Controllers
             }
 
             ModelState.AddModelError("", "Customer could not be updated.");
+
+            var locationList = new SelectList(service.LocationList(), "LocationId", "FullLocation", model.LocationId);
+            ViewBag.LocationId = locationList;
+
             return View(model);
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlueBadge.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -17,8 +18,14 @@ namespace BlueBadge.Models
         public string LastName { get; set; }
         [Display(Name ="Company Name")]
         public string CompanyName { get; set; }
+
+
+        [Display(Name = "Location ID")]
+        public int LocationId { get; set; }
         [Display(Name = "Location")]
-        public string Location { get; set; }
+        public Location Location { get; set; }
+
+
         [Display(Name = "Joined On")]
         public DateTimeOffset CreatedUTC { get; set; }
 
