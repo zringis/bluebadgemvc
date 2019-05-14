@@ -16,8 +16,12 @@ namespace BlueBadge.Models
         public string CompanyName { get; set; }
         [Display(Name="Description of Job")]
         public string JobDescription { get; set; }
-        [Display(Name="Location of Job")]
-        public string JobLocation { get; set; }
+
+        [Display(Name = "Location ID")]
+        public int LocationId { get; set; }
+        [Display(Name = "Location")]
+        public Location Location { get; set; }
+
         [Display(Name="Created on")]
         public DateTimeOffset CreatedUtc { get; set; }
         [Display(Name="Last Modified")]

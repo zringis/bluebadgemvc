@@ -34,8 +34,8 @@ namespace BlueBadgeMVC.Controllers
             var service = CreateJobService();
             var skillList = new SelectList(service.SkillList(), "SkillId", "SkillName");
             ViewBag.SkillId = skillList;
-            var techList = new SelectList(service.SkillList(), "TechId", "TechName");
-            ViewBag.SkillId = techList;
+            var locationList = new SelectList(service.LocationList(), "LocationId", "FullLocation");
+            ViewBag.LocationId = locationList;
 
             return View();
         }
@@ -47,6 +47,11 @@ namespace BlueBadgeMVC.Controllers
             if (!ModelState.IsValid) return View(model);
 
             var service = CreateJobService();
+
+            var skillList = new SelectList(service.SkillList(), "SkillId", "SkillName", model.SkillId);
+            ViewBag.SkillId = skillList;
+            var locationList = new SelectList(service.LocationList(), "LocationId", "FullLocation", model.LocationId);
+            ViewBag.LocationId = locationList;
 
             if (service.CreateJob(model))
             {
@@ -70,11 +75,10 @@ namespace BlueBadgeMVC.Controllers
         public ActionResult Edit(int id)
         {
             var service = CreateJobService();
-
             var skillList = new SelectList(service.SkillList(), "SkillId", "SkillName");
             ViewBag.SkillId = skillList;
-            var techList = new SelectList(service.SkillList(), "TechId", "TechName");
-            ViewBag.SkillId = techList;
+            var locationList = new SelectList(service.LocationList(), "LocationId", "FullLocation");
+            ViewBag.LocationId = locationList;
 
             var detail = service.GetJobById(id);
             var model =
@@ -84,7 +88,7 @@ namespace BlueBadgeMVC.Controllers
                     JobId = detail.JobId,
                     SkillId = detail.SkillId,
                     JobDescription = detail.JobDescription,
-                    JobLocation = detail.JobLocation
+                    LocationId = detail.LocationId
                 };
             return View(model);
         }
@@ -110,6 +114,12 @@ namespace BlueBadgeMVC.Controllers
             }
 
             ModelState.AddModelError("", "Job could not be updated.");
+
+            var skillList = new SelectList(service.SkillList(), "SkillId", "SkillName", model.SkillId);
+            ViewBag.SkillId = skillList;
+            var locationList = new SelectList(service.LocationList(), "LocationId", "FullLocation", model.LocationId);
+            ViewBag.LocationId = locationList;
+
             return View(model);
         }
 

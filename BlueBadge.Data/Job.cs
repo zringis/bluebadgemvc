@@ -17,8 +17,12 @@ namespace BlueBadge.Data
         public string CompanyName { get; set; }
         [Required]
         public string JobDescription { get; set; }
-        [Required]
-        public string JobLocation { get; set; }
+
+
+        public int LocationId { get; set; }
+        public virtual Location Location { get; set; }
+
+
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }

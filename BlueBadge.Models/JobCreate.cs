@@ -18,9 +18,10 @@ namespace BlueBadge.Models
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         [MaxLength(1000, ErrorMessage = "There are too many characters in this field.")]
         public string JobDescription { get; set; }
-        [Required]
-        [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
-        public string JobLocation { get; set; }
+
+
+        public int LocationId { get; set; }
+        public Location Location { get; set; }
 
 
         public int SkillId { get; set; }

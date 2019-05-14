@@ -74,6 +74,10 @@
     <Compile Include="Migrations\201905141327028_update.Designer.cs">
       <DependentUpon>201905141327028_update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905141507343_locationupdates.cs" />
+    <Compile Include="Migrations\201905141507343_locationupdates.Designer.cs">
+      <DependentUpon>201905141507343_locationupdates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Skill.cs" />
@@ -95,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905141327028_update.resx">
       <DependentUpon>201905141327028_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905141507343_locationupdates.resx">
+      <DependentUpon>201905141507343_locationupdates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

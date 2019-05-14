@@ -12,7 +12,9 @@ namespace BlueBadge.Models
         public int JobId { get; set; }
         public string CompanyName { get; set; }
         public string JobDescription { get; set; }
-        public string JobLocation { get; set; }
+
+        public int LocationId { get; set; }
+        public Location Location { get; set; }
 
         public int SkillId { get; set; }
         public Skill Skill { get; set; }

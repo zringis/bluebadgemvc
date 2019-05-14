@@ -26,7 +26,8 @@ namespace BlueBadge.Services
                     OwnerId = _userId,
                     CompanyName = model.CompanyName,
                     JobDescription = model.JobDescription,
-                    JobLocation = model.JobLocation,
+
+                    LocationId = model.LocationId,
 
                     SkillId = model.SkillId,
 
@@ -57,8 +58,8 @@ namespace BlueBadge.Services
                                     JobDescription = e.JobDescription,
 
                                     Skill = e.Skill,
+                                    Location = e.Location,
 
-                                    JobLocation = e.JobLocation,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
@@ -81,8 +82,8 @@ namespace BlueBadge.Services
                         JobId = entity.JobId,
                         CompanyName = entity.CompanyName,
                         JobDescription = entity.JobDescription,
-                        JobLocation = entity.JobLocation,
 
+                        Location = entity.Location,
                         Skill = entity.Skill,
 
                         CreatedUtc = entity.CreatedUtc,
@@ -102,8 +103,9 @@ namespace BlueBadge.Services
 
                 entity.CompanyName = model.CompanyName;
                 entity.JobDescription = model.JobDescription;
-                entity.JobLocation = model.JobLocation;
 
+
+                entity.LocationId = model.LocationId;
                 entity.SkillId = model.SkillId;
 
 
@@ -134,6 +136,14 @@ namespace BlueBadge.Services
             using (var ctx = new ApplicationDbContext())
             {
                 return ctx.Skills.ToList();
+            }
+        }
+        public List<Location> LocationList()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                return ctx.Locations.ToList();
+
             }
         }
 

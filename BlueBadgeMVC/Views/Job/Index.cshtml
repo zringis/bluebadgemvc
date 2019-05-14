@@ -31,8 +31,9 @@
         </th>
        
         <th>
-            @Html.DisplayNameFor(model => model.JobLocation)
+            @Html.DisplayNameFor(model => model.Location.FullLocation)
         </th>
+
         <th>
             @Html.DisplayNameFor(model => model.CreatedUtc)
         </th>
@@ -50,7 +51,7 @@
             </td>
             
             <td>
-                @Html.DisplayFor(modelItem => item.JobLocation)
+                @Html.DisplayFor(modelItem => item.Location.FullLocation)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedUtc)
