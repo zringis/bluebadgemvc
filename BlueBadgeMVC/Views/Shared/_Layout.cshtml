@@ -21,17 +21,17 @@
             <li><a href="#">About</a></li>
             <li><a href="#">Portfolio</a></li>
             <li><a href="#">Contact</a></li>*@
-        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-        <li>@Html.ActionLink("About", "About", "Home")</li>
-        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+        <li id="limenu">@Html.ActionLink("Home", "Index", "Home")</li>
+        <li id="limenu">@Html.ActionLink("About", "About", "Home")</li>
+        <li id="limenu">@Html.ActionLink("Contact", "Contact", "Home")</li>
 
         @if (User.Identity.IsAuthenticated)
         {
-            <li>@Html.ActionLink("Techs", "Index", "Tech")</li>
-            <li>@Html.ActionLink("Skill Sets", "Index", "Skill")</li>
-            <li>@Html.ActionLink("Jobs", "Index", "Job")</li>
-            <li>@Html.ActionLink("Customers", "Index", "Customer")</li>
-            <li>@Html.ActionLink("Locations", "Index", "Location")</li>
+            <li id="limenu">@Html.ActionLink("Techs", "Index", "Tech")</li>
+            <li id="limenu">@Html.ActionLink("Skill Sets", "Index", "Skill")</li>
+            <li id="limenu">@Html.ActionLink("Jobs", "Index", "Job")</li>
+            <li id="limenu">@Html.ActionLink("Customers", "Index", "Customer")</li>
+            <li id="limenu">@Html.ActionLink("Locations", "Index", "Location")</li>
         }
     </ul>
 
