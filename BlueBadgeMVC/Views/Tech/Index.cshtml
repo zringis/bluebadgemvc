@@ -42,9 +42,13 @@
                 @Html.DisplayFor(modelItem => item.Location.FullLocation)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.TechId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.TechId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.TechId })
+                <div id="teststuff">
+
+                    @Html.ActionLink("Edit", "Edit", new { id = item.TechId })
+                    @Html.ActionLink("Details", "Details", new { id = item.TechId })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.TechId })
+                </div>
+
             </td>
         </tr>
     }

@@ -1,5 +1,6 @@
 ﻿@import url(https://fonts.googleapis.com/css?family=Enriqueta:400,700);
-
+html{
+}
 body {
     padding-bottom: 20px;
 }
@@ -162,14 +163,19 @@ html, body {
     z-index: 1;
 }
 
+#teststuff {
+    display: inline-block;
+}
+
 #menu-toggle:checked + #trigger + #burger + #menu {
     animation: checked-anim 1s ease both;
 }
 
-#menu-toggle:checked + #trigger ~ #menu > li, a {
+#menu-toggle:checked + #trigger ~ #menu > li, #navanchor {
     display: block;
 }
 
 [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
     display: none;
 }
+
