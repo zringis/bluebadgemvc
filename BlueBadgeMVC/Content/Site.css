@@ -27,10 +27,11 @@ body {
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+
+
+#fill_width {
+    width: 100%;
+    margin-right: 0;
 }
 
 
@@ -178,4 +179,3 @@ html, body {
 [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
     display: none;
 }
-
