@@ -55,11 +55,11 @@ namespace BlueBadgeMVC.Controllers
 
             if (service.CreateJob(model))
             {
-                TempData["SaveResult"] = "Job was created.";
+                TempData["SaveResult"] = $"{model.CompanyName}'s Job Was Created.";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Job could not be created.");
+            ModelState.AddModelError("", $"{model.CompanyName}'s Job Could Not Be Created.");
 
             return View(model);
         }
