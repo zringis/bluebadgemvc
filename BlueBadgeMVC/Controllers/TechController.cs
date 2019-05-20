@@ -50,11 +50,11 @@ namespace BlueBadgeMVC.Controllers
 
             if (service.CreateTech(model))
             {
-                TempData["SaveResult"] = "Your tech was added.";
+                TempData["SaveResult"] = $"{model.FirstName} {model.LastName} Was Added.";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Tech could not be added.");
+            ModelState.AddModelError("", $"{model.FirstName} {model.LastName} Could Not Be Added.");
 
             
 
@@ -123,11 +123,11 @@ namespace BlueBadgeMVC.Controllers
 
             if (service.UpdateTech(model))
             {
-                TempData["SaveResult"] = "Tech was updated.";
+                TempData["SaveResult"] = $"{model.FirstName} {model.LastName} Was Updated.";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Tech could not be updated.");
+            ModelState.AddModelError("", $"{model.FirstName} {model.LastName} Could Not Be Updated.");
 
             var skillList = new SelectList(service.SkillList(), "SkillId", "SkillName", model.SkillId);
             ViewBag.SkillId = skillList;

@@ -37,11 +37,11 @@ namespace BlueBadgeMVC.Controllers
 
             if (service.CreateSkill(model))
             {
-                TempData["SaveResult"] = "Skill was created.";
+                TempData["SaveResult"] = $"{model.SkillName} Was Created.";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Skill could not be created.");
+            ModelState.AddModelError("", $"{model.SkillName} Could Not Be Created.");
 
             return View(model);
         }
@@ -90,11 +90,11 @@ namespace BlueBadgeMVC.Controllers
 
             if (service.UpdateSkill(model))
             {
-                TempData["SaveResult"] = "Skill was updated.";
+                TempData["SaveResult"] = $"{model.SkillName} Was Updated.";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Skill could not be updated.");
+            ModelState.AddModelError("", $"{model.SkillName} Could Not Be Updated.");
             return View(model);
         }
 

@@ -109,11 +109,11 @@ namespace BlueBadgeMVC.Controllers
 
             if (service.UpdateJob(model))
             {
-                TempData["SaveResult"] = "Job was updated.";
+                TempData["SaveResult"] = $"{model.CompanyName}'s Job Was Updated.";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Job could not be updated.");
+            ModelState.AddModelError("", $"{model.CompanyName}'s Job Could Not Be Updated.");
 
             var skillList = new SelectList(service.SkillList(), "SkillId", "SkillName", model.SkillId);
             ViewBag.SkillId = skillList;
@@ -141,7 +141,7 @@ namespace BlueBadgeMVC.Controllers
 
             service.DeleteJob(id);
 
-            TempData["SaveResult"] = "Job was deleted";
+            TempData["SaveResult"] = "Job Was Deleted";
 
             return RedirectToAction("Index");
         }
