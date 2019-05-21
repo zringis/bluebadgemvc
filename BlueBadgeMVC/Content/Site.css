@@ -1,4 +1,8 @@
 ﻿@import url(https://fonts.googleapis.com/css?family=Enriqueta:400,700);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+@import url(./font-awesome.min.css);
+@import url("http://fonts.googleapis.com/css?family=Raleway:300,700");
+
 
 html {
 }
@@ -20,6 +24,7 @@ body {
     margin-top: 20px;
     background-color: white !important;
     border-radius: 10px;
+    box-shadow: 5px 10px 10px;
     z-index: 0;
     margin-bottom: 80px;
     margin-top: 50px;
@@ -53,7 +58,6 @@ body {
 
 
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
 
 @keyframes checked-anim {
     50% {
@@ -117,7 +121,7 @@ html, body {
     background: -o-linear-gradient(45deg, rgba(213,0,125,0.8), rgba(229,57,53,0.8));
     background: -moz-linear-gradient(45deg, rgba(213,0,125,0.8), rgba(229,57,53,0.8));
     background: linear-gradient(45deg, rgba(213,0,125,0.8), rgba(229,57,53,0.8));*/
-    background-color: #03A9F4;
+    background-color: #00b0b3;
     font-family: 'Roboto', sans-serif;
     /*overflow: hidden;*/
 }
@@ -2227,11 +2231,9 @@ body {
     body.is-loading *, body.is-loading *:before, body.is-loading *:after {
         -moz-animation: none !important;
         -webkit-animation: none !important;
-        -ms-animation: none !important;
         animation: none !important;
         -moz-transition: none !important;
         -webkit-transition: none !important;
-        -ms-transition: none !important;
         transition: none !important;
     }
 
@@ -2468,11 +2470,8 @@ button,
 .button {
     -moz-appearance: none;
     -webkit-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
     -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     border-radius: 0;
     border: 0;
@@ -2538,9 +2537,6 @@ button,
     button:disabled,
     .button.disabled,
     .button:disabled {
-        -moz-pointer-events: none;
-        -webkit-pointer-events: none;
-        -ms-pointer-events: none;
         pointer-events: none;
         opacity: 0.25;
     }
@@ -2647,15 +2643,10 @@ form {
 }
 
 .grid-form {
-    display: -moz-flex;
     display: -webkit-flex;
-    display: -ms-flex;
     display: flex;
-    -moz-justify-content: space-between;
     -webkit-justify-content: space-between;
-    -ms-justify-content: space-between;
     justify-content: space-between;
-    -moz-flex-wrap: wrap;
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -2697,8 +2688,6 @@ select,
 textarea {
     -moz-appearance: none;
     -webkit-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
     border-radius: 0;
     border: none;
     border: solid 1px;
@@ -2765,8 +2754,6 @@ input[type="checkbox"],
 input[type="radio"] {
     -moz-appearance: none;
     -webkit-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
     display: block;
     float: left;
     margin-right: -2em;
@@ -3330,17 +3317,12 @@ table {
 /* Feature */
 
 .features {
-    display: -moz-flex;
     display: -webkit-flex;
-    display: -ms-flex;
     display: flex;
-    -moz-flex-wrap: wrap;
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -moz-justify-content: center;
     -webkit-justify-content: center;
-    -ms-justify-content: center;
     justify-content: center;
     margin-bottom: 2em;
 }
@@ -4149,7 +4131,10 @@ table {
     color: #ffffff;
     padding: 8em 0 6em 0;
     text-align: center;
+    border-radius: 10px;
 }
+
+
 
     #banner input, #banner select, #banner textarea {
         color: #ffffff;
