@@ -1,7 +1,7 @@
 ﻿@import url(https://fonts.googleapis.com/css?family=Enriqueta:400,700);
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
 @import url("http://fonts.googleapis.com/css?family=Raleway:300,700");
-
+@import url("http://fonts.googleapis.com/css?family=Raleway:300,700");
 @import url(./font-awesome.min.css);
 
 
@@ -18,7 +18,6 @@ body {
     outline: 0;
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -32,9 +31,6 @@ body {
     margin-top: 50px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
 .dl-horizontal dt {
     white-space: normal;
 }
@@ -42,9 +38,6 @@ body {
 .col-md-4 {
     z-index: 0;
 }
-
-/* Set width on the form input elements since they're 100% wide by default */
-
 
 #fill_width {
     width: 100%;
@@ -57,9 +50,7 @@ body {
     border-color: #68cefd;
 }
 
-
-
-
+/*----[BURGER MENU]----*/
 
 @keyframes checked-anim {
     50% {
@@ -83,8 +74,7 @@ body {
 
 #limenu {
     margin: 75px 0 -55px 0;
-    color: #03A9F4;
-    font: 14pt "Roboto", sans-serif;
+    color: #00b0b3;
     font-weight: 700;
     line-height: 1.8;
     text-decoration: none;
@@ -97,7 +87,12 @@ body {
 #limenu {
     width: 230px;
     text-indent: 56px;
+    text-decoration: none !important;
 }
+
+    #limenu a {
+        text-decoration: none !important;
+    }
 
 #lilogin {
 }
@@ -113,19 +108,8 @@ aside {
 
 
 html, body {
-    /*margin: 0;
-    padding: 0;*/
-    /*background-image: url("Images/bg-01.jpg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background: rgba(219,21,99,0.8);
-    background: -webkit-linear-gradient(45deg, rgba(213,0,125,0.8), rgba(229,57,53,0.8));
-    background: -o-linear-gradient(45deg, rgba(213,0,125,0.8), rgba(229,57,53,0.8));
-    background: -moz-linear-gradient(45deg, rgba(213,0,125,0.8), rgba(229,57,53,0.8));
-    background: linear-gradient(45deg, rgba(213,0,125,0.8), rgba(229,57,53,0.8));*/
     background-color: #00b0b3;
     font-family: 'Roboto', sans-serif;
-    /*overflow: hidden;*/
 }
 
 #trigger, #burger, #burger:before, #burger:after {
@@ -217,7 +201,7 @@ html, body {
 
 
 
-/*-----------------*/
+/*----[CONTAINER]----*/
 
 .container-contact2 {
     width: 100%;
@@ -241,8 +225,7 @@ html, body {
 }
 
 
-/*------------------------------------------------------------------
-[  ]*/
+/*----[CONTACT FORMS]----*/
 
 .contact2-form {
     width: 100%;
@@ -258,9 +241,20 @@ html, body {
 }
 
 
-
-/*------------------------------------------------------------------
-[  ]*/
+/*----[MAP]----*/
+#map {
+    padding-top: 20px;
+    margin-top: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    height: 350px;
+    width: 90%;
+    border-radius: 10px;
+    border: 3px solid #03A9F4;
+}
+/*----[INPUTS]----*/
 
 .wrap-input2 {
     width: 100%;
@@ -337,7 +331,6 @@ textarea {
         transition: all 0.4s;
     }
 
-/*---------------------------------------------*/
 input.input2 {
     height: 45px;
 }
@@ -374,8 +367,8 @@ textarea.input2 {
     width: 100%;
 }
 
-/*------------------------------------------------------------------
-[ Button ]*/
+/*----[BUTTONS]----*/
+
 .container-contact2-form-btn {
     display: -webkit-box;
     display: -webkit-flex;
@@ -393,7 +386,6 @@ textarea.input2 {
     z-index: 0;
     border-radius: 2px;
     width: auto;
-    /*overflow: hidden;*/
     margin: 0 auto;
 }
 
@@ -435,8 +427,8 @@ textarea.input2 {
     left: 0;
 }
 
-/*------------------------------------------------------------------
-[ Responsive ]*/
+/*----[RESPONSIVENESS]----*/
+
 
 @media (max-width: 576px) {
     .wrap-contact2 {
@@ -444,8 +436,7 @@ textarea.input2 {
     }
 }
 
-
-/*----------INFO CARDS-------------------*/
+/*----[INFO CARDS]----*/
 
 /*.containerr {
     display: flex;
@@ -673,16 +664,8 @@ hr {
 }
 
 
-@import url(font-awesome.min.css);
-@import url("http://fonts.googleapis.com/css?family=Raleway:300,700");
+/*----[MAIN]----*/
 
-/*
-	Typify by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
-*/
-
-/* Reset */
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
@@ -723,7 +706,8 @@ body {
     -webkit-text-size-adjust: none;
 }
 
-/* Box Model */
+/*----[BOX MODEL]----*/
+
 
 *, *:before, *:after {
     -moz-box-sizing: border-box;
@@ -731,7 +715,8 @@ body {
     box-sizing: border-box;
 }
 
-/* Containers */
+/*----[CONTAINERS]----*/
+
 
 .container {
     margin-left: auto;
@@ -885,7 +870,8 @@ body {
     }
 }
 
-/* Grid */
+/*----[TABLES]----*/
+
 
 .row {
     border-bottom: solid 1px transparent;
@@ -2442,7 +2428,8 @@ hr {
     border-bottom-color: #e3e3e3;
 }
 
-/* Box */
+/*----[BOX]----*/
+
 
 .box {
     border-radius: 0;
@@ -2467,7 +2454,8 @@ hr {
     border-color: #e3e3e3;
 }
 
-/* Button */
+/*----[MORE BUTTONS]----*/
+
 
 input[type="submit"],
 input[type="reset"],
@@ -2642,7 +2630,8 @@ button,
             background-color: #00b4b5;
         }
 
-/* Form */
+/*----[FORMS]----*/
+
 
 form {
     margin: 0 0 2em 0;
@@ -2929,7 +2918,8 @@ input[type="radio"]:focus + label:before {
         display: none;
     }
 
-/* Image */
+/*----[IMAGES]----*/
+
 
 .image {
     border-radius: 0;
@@ -2983,7 +2973,8 @@ input[type="radio"]:focus + label:before {
             width: 100%;
         }
 
-/* List */
+/*----[LISTS]----*/
+
 
 ol {
     list-style: decimal;
@@ -3159,7 +3150,8 @@ ul.alt li {
     border-top-color: #e3e3e3;
 }
 
-/* Section/Article */
+/*----[SECTIONS & ARTICLES]----*/
+
 
 section.special, article.special, header.special {
     text-align: center;
@@ -3233,7 +3225,8 @@ header p {
     color: #bbb;
 }
 
-/* Table */
+/*----[TABLE]----*/
+
 
 .table-wrapper {
     -webkit-overflow-scrolling: touch;
@@ -3320,7 +3313,8 @@ table {
         border-color: #e3e3e3;
     }
 
-/* Feature */
+/*----[FEATURE]----*/
+
 
 .features {
     display: -webkit-flex;
@@ -3378,7 +3372,8 @@ table {
         color: #00cdcf;
     }
 
-/* Wrapper */
+/*----[WRAPPER]----*/
+
 
 .wrapper {
     padding: 6em 0 4em 0;
@@ -4130,7 +4125,8 @@ table {
         }
 }
 
-/* Banner */
+/*----[BANNER]----*/
+
 
 #banner {
     background-color: #00cdcf;
@@ -4327,7 +4323,8 @@ table {
         }
 }
 
-/* Main */
+/*----[MAIN]----*/
+
 
 #main {
     padding: 4em 0 2em 0;
@@ -4340,7 +4337,8 @@ table {
     }
 }
 
-/* Footer */
+/*----[FOOTER]----*/
+
 
 #footer {
     background-color: #f7f7f7;
