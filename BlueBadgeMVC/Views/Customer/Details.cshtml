@@ -9,9 +9,11 @@
 <div>
     <h4>CustomerDetail</h4>
     <hr />
+    
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.CustomerId)
+            
         </dt>
 
         <dd>
@@ -23,7 +25,9 @@
         </dt>
 
         <dd>
+            @*<span class="image right"><img class="silhouette" src="~/Content/Images/silhouette.png"></span>*@
             @Html.DisplayFor(model => model.FirstName)
+
         </dd>
 
         <dt>
@@ -76,8 +80,8 @@
     <style>
         /* Always set the map height explicitly to define the size of the div
             * element that contains the map. */
-        
-        
+
+
     </style>
 
     <div class="row">

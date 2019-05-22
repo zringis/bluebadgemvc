@@ -194,6 +194,7 @@
     <Content Include="Content\Images\Name_Blue.png" />
     <Content Include="Content\Images\Name_Orang.png" />
     <Content Include="Content\Images\Name_Purp.png" />
+    <Content Include="Content\Images\silhouette.png" />
     <Content Include="Content\nav.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />

@@ -2973,9 +2973,11 @@ input[type="radio"]:focus + label:before {
             width: 100%;
         }
 
+.silhouette {
+    width: 50px !important;
+    height: 50px !important;
+}
 /*----[LISTS]----*/
-
-
 ol {
     list-style: decimal;
     margin: 0 0 2em 0;
