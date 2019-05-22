@@ -132,7 +132,7 @@ html, body {
     position: absolute;
     top: 25px;
     left: 25px;
-    background: #03A9F4;
+    background: #00cdcf;
     width: 30px;
     height: 5px;
     transition: .2s ease;
@@ -193,6 +193,10 @@ html, body {
     z-index: 1;
     overflow: hidden;
     top: 0px;
+}
+
+#hidden-check input[type="checkbox"] {
+    background-color: transparent;
 }
 
 #teststuff {
