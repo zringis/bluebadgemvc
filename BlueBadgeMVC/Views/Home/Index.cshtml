@@ -1,31 +1,109 @@
-﻿@{
+﻿@using Microsoft.AspNet.Identity
+@{
+    /**/
+
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+@*<div class="jumbotron">
+        <h1>Company Manager</h1>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <p>Welcome Back <b>@User.Identity.GetUserName()</b>! What Are We Doing Today?</p>
+        }
+        else
+        {
+            <p class="lead">Company Manager is used to keep track of various jobs, customers, and technicians.</p>
+            <p>@Html.ActionLink("Learn More", "About", "Home")</p>
+        }
+    </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="row">
+            <div class="col-md-4">
+                <h2>@Html.ActionLink("Manage Technicians", "Index", "Tech")</h2>
+                <p>
+                    Need to add more technicians to your database? Start here! Save data such as their Names, Pay, Location, Skills, and more.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h2>@Html.ActionLink("Manage Jobs", "Index", "Job")</h2>
+                <p>Jobs need done? Need to add various jobs to your database? This will be handled through our jobs tab! Here we can keep track of various things such as Skills Needed, Locations and more!</p>
+            </div>
+            <div class="col-md-4">
+                <h2>@Html.ActionLink("Manage Customers", "Index", "Customer")</h2>
+                <p>Why not keep track of regular customers too? When managing customers, we can keep track of things such as Name, Location, Companies and more!</p>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Getting Started</h2>
+                <p>
+                    <b>Company Manager</b> is a strong tool to use to keep various aspects of your business in line. <b>100% Free To Use</b> and simple to run. <br /><b>@Html.ActionLink("Register Now!", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-links" })</b>
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h2>Store Company Data</h2>
+                <p>Using <b>Company Manager</b> you can keep track of various company assets such as Customers, Jobs, Technicians and much more!<br /><b>@Html.ActionLink("Check Out What We Have To Offer!", "About", "Home")</b></p>
+            </div>
+            <div class="col-md-4">
+                <h2>24/7 Support</h2>
+                <p>By being a member with <b>Company Manager</b> you have complete access to our support team, this means you'll have round the clock support via phone, email and more! <br /><b>@Html.ActionLink("24/7 Support 100% Free and Included", "Contact", "Home")</b></p>
+            </div>
+        </div>
+    }*@
+
+<section id="banner">
+    <h2><strong>Company Manager</strong></h2>
+    <p>The Leading Company In Company Management</p>
+    @if (User.Identity.IsAuthenticated)
+    {
+    }
+    else
+    {
+<ul class="actions">
+    @Html.ActionLink("Register Now!", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "button special" })
+</ul>
+    }
+
+</section>
+
+<section id="one" class="wrapper special">
+    <div class="inner">
+        <header class="major">
+            <h2>Features</h2>
+        </header>
+        <div class="features">
+            <div class="feature">
+                <i class="fa fa-diamond"></i>
+                <h3>Strongest Tool on The Market</h3>
+                <p>Company Manager is rated one of the highest tools on the market right now!</p>
+            </div>
+            <div class="feature">
+                <i class="fa fa-phone"></i>
+                <h3>247/7 365 Help</h3>
+                <p>We have a very strong support team, ready and set to go at your disposal!</p>
+            </div>
+            <div class="feature">
+                <i class="fa fa-paper-plane-o"></i>
+                <h3>Weekly Updates</h3>
+                <p>Using our strong development team, we are able to pump out weekly updates for you to enjoy and further manage your company.</p>
+            </div>
+            <div class="feature">
+                <i class="fa fa-check"></i>
+                <h3>100% Free</h3>
+                <p>Our product is 100% free to use! No hidden fees, no hidden anything! Manage your company now!</p>
+            </div>
+            <div class="feature">
+                <i class="fa fa-save"></i>
+                <h3>Keep Track of Company Data</h3>
+                <p>Our site allows you to keep track of all kinds of company data!</p>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+</section>

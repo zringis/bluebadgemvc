@@ -9,9 +9,11 @@
 <div>
     <h4>CustomerDetail</h4>
     <hr />
+    
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.CustomerId)
+            
         </dt>
 
         <dd>
@@ -23,7 +25,9 @@
         </dt>
 
         <dd>
+            @*<span class="image right"><img class="silhouette" src="~/Content/Images/silhouette.png"></span>*@
             @Html.DisplayFor(model => model.FirstName)
+
         </dd>
 
         <dt>
@@ -65,7 +69,37 @@
             @Html.DisplayFor(model => model.ModifiedUtc)
         </dd>
 
+
+
+
+
+
     </dl>
+
+
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+            * element that contains the map. */
+
+
+    </style>
+
+    <div class="row">
+        <div id="map"></div>
+
+        <script>
+            var map;
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: { lat: 39.790, lng: -86.152 },
+                    zoom: 4
+                });
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAH9Uk-JhFcLXvGrSoaH15KJOin9ITrwmM&callback=initMap"
+                async defer></script>
+    </div>
+
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerId }) |

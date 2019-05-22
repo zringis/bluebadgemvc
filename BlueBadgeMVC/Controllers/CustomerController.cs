@@ -49,11 +49,11 @@ namespace BlueBadgeMVC.Controllers
 
             if (service.CreateCustomer(model))
             {
-                TempData["SaveResult"] = "Customer was created.";
+                TempData["SaveResult"] = $"{model.FirstName} {model.LastName} Was Created.";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Customer could not be created.");
+            ModelState.AddModelError("", $"{model.FirstName} {model.LastName} Could Not Be Created.");
 
             return View(model);
         }
@@ -104,11 +104,11 @@ namespace BlueBadgeMVC.Controllers
 
             if (service.UpdateCustomer(model))
             {
-                TempData["SaveResult"] = "Customer was updated.";
+                TempData["SaveResult"] = $"{model.FirstName} {model.LastName} Was Updated.";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Customer could not be updated.");
+            ModelState.AddModelError("", $"{model.FirstName} {model.LastName} Could Not Be Updated.");
 
             var locationList = new SelectList(service.LocationList(), "LocationId", "FullLocation", model.LocationId);
             ViewBag.LocationId = locationList;

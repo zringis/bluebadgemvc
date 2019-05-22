@@ -40,11 +40,11 @@ namespace BlueBadgeMVC.Controllers
 
             if (service.CreateLocation(model))
             {
-                TempData["SaveResult"] = "Location was added.";
+                TempData["SaveResult"] = $"{model.LocationState}, {model.LocationCity} Was Added.";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Location coundn't be added.");
+            ModelState.AddModelError("", $"{model.LocationState}, {model.LocationCity} coundn't be added.");
 
             return View(model);
         }
@@ -86,11 +86,11 @@ namespace BlueBadgeMVC.Controllers
 
             if (service.UpdateNote(model))
             {
-                TempData["SaveResult"] = "Location was updated.";
+                TempData["SaveResult"] = $"{model.LocationState}, {model.LocationCity} Was Updated.";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Location could not be updated.");
+            ModelState.AddModelError("", $"{model.LocationState}, {model.LocationCity} Could Not Be Updated.");
             return View(model);
         }
 
