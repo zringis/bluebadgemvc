@@ -58,25 +58,9 @@
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Job.cs" />
     <Compile Include="Location.cs" />
-    <Compile Include="Migrations\201905131350583_removedguid.cs" />
-    <Compile Include="Migrations\201905131350583_removedguid.Designer.cs">
-      <DependentUpon>201905131350583_removedguid.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905131819022_location.cs" />
-    <Compile Include="Migrations\201905131819022_location.Designer.cs">
-      <DependentUpon>201905131819022_location.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905132029512_locationupdate.cs" />
-    <Compile Include="Migrations\201905132029512_locationupdate.Designer.cs">
-      <DependentUpon>201905132029512_locationupdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905141327028_update.cs" />
-    <Compile Include="Migrations\201905141327028_update.Designer.cs">
-      <DependentUpon>201905141327028_update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905141507343_locationupdates.cs" />
-    <Compile Include="Migrations\201905141507343_locationupdates.Designer.cs">
-      <DependentUpon>201905141507343_locationupdates.cs</DependentUpon>
+    <Compile Include="Migrations\201905222059307_FirstLivePush.cs" />
+    <Compile Include="Migrations\201905222059307_FirstLivePush.Designer.cs">
+      <DependentUpon>201905222059307_FirstLivePush.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,20 +72,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905131350583_removedguid.resx">
-      <DependentUpon>201905131350583_removedguid.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905131819022_location.resx">
-      <DependentUpon>201905131819022_location.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905132029512_locationupdate.resx">
-      <DependentUpon>201905132029512_locationupdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905141327028_update.resx">
-      <DependentUpon>201905141327028_update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905141507343_locationupdates.resx">
-      <DependentUpon>201905141507343_locationupdates.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905222059307_FirstLivePush.resx">
+      <DependentUpon>201905222059307_FirstLivePush.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
