@@ -23,7 +23,7 @@ namespace BlueBadge.WebApi.Controllers
         {
             SkillService skillService = CreateSkillService();
             var skill = skillService.GetSkillById(id);
-            return Ok();
+            return Ok(skill);
         }
 
         public IHttpActionResult Post(SkillCreate skill)
